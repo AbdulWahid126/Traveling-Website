@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'display': ['Playfair Display', 'serif'],
+				'body': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Travel theme colors
+				ocean: 'hsl(var(--ocean))',
+				sky: 'hsl(var(--sky))',
+				sand: 'hsl(var(--sand))',
+				cream: 'hsl(var(--cream))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

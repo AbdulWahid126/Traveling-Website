@@ -17,24 +17,39 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Travel theme colors based on specified palette */
+    --primary: 195 65% 55%; /* #81BFDA - Ocean Blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 195 85% 85%; /* #B1F0F7 - Light Sky Blue */
+    --secondary-foreground: 195 65% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 45 85% 75%; /* #FADA7A - Golden Sun */
+    --accent-foreground: 45 95% 25%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 50 65% 90%; /* #F5F0CD - Cream */
+    --muted-foreground: 195 65% 35%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 195 35% 85%;
+    --input: 195 35% 85%;
+    --ring: 195 65% 55%;
+
+    /* Custom travel theme tokens */
+    --ocean: 195 65% 55%; /* #81BFDA */
+    --sky: 195 85% 85%; /* #B1F0F7 */
+    --sand: 45 85% 75%; /* #FADA7A */
+    --cream: 50 65% 90%; /* #F5F0CD */
+
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--sky)), hsl(var(--ocean)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--sand)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--ocean) / 0.9), hsl(var(--primary) / 0.8));
+
+    --shadow-soft: 0 4px 20px hsl(var(--ocean) / 0.15);
+    --shadow-medium: 0 8px 30px hsl(var(--ocean) / 0.2);
+    --shadow-strong: 0 20px 40px hsl(var(--ocean) / 0.3);
 
     --radius: 0.5rem;
 
@@ -56,33 +71,38 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 195 25% 8%;
+    --foreground: 195 15% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 195 25% 10%;
+    --card-foreground: 195 15% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 195 25% 8%;
+    --popover-foreground: 195 15% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 195 65% 65%;
+    --primary-foreground: 195 95% 5%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 195 45% 15%;
+    --secondary-foreground: 195 15% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 195 45% 15%;
+    --muted-foreground: 195 15% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 75% 65%;
+    --accent-foreground: 45 95% 5%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 195 45% 15%;
+    --input: 195 45% 15%;
+    --ring: 195 65% 65%;
+
+    --ocean: 195 65% 65%;
+    --sky: 195 45% 25%;
+    --sand: 45 75% 65%;
+    --cream: 50 25% 15%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +121,31 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .text-ocean { color: hsl(var(--ocean)); }
+  .text-sky { color: hsl(var(--sky)); }
+  .text-sand { color: hsl(var(--sand)); }
+  .text-cream { color: hsl(var(--cream)); }
+  
+  .bg-ocean { background-color: hsl(var(--ocean)); }
+  .bg-sky { background-color: hsl(var(--sky)); }
+  .bg-sand { background-color: hsl(var(--sand)); }
+  .bg-cream { background-color: hsl(var(--cream)); }
+  
+  .bg-gradient-ocean { background: var(--gradient-ocean); }
+  .bg-gradient-sunset { background: var(--gradient-sunset); }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-medium { box-shadow: var(--shadow-medium); }
+  .shadow-strong { box-shadow: var(--shadow-strong); }
 }
