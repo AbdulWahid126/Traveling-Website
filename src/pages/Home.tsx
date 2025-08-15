@@ -88,7 +88,7 @@ const Home = () => {
               Explore Destinations
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-3">
+            <Button size="lg" variant="outline" className="border-white text-gray-400 hover:bg-white hover:text-primary font-semibold px-8 py-3">
               Watch Our Story
             </Button>
           </div>
@@ -215,7 +215,7 @@ const Home = () => {
               Plan My Trip
               <Calendar className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-3">
+            <Button size="lg" variant="outline" className="border-white text-gray-400 hover:bg-white hover:text-primary font-semibold px-8 py-3">
               <Users className="mr-2 h-5 w-5" />
               Join Our Community
             </Button>
